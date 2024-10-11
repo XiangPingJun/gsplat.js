@@ -14,7 +14,7 @@ class OrbitControls {
     dampening: number = 0.12;
     setCameraTarget: (newTarget: Vector3) => void = () => { };
     getCameraAngles: () => {};
-    setCameraAngles: (angles: { alpha: number, beta: number, radius: number }) => void;
+    setCameraParam: (angles: { alpha: number, beta: number, radius: number, target: Vector3 }) => void;
     update: () => void;
     dispose: () => void;
 
@@ -71,13 +71,14 @@ class OrbitControls {
         };
 
         this.getCameraAngles = () => {
-            return { alpha, beta, radius };
+            return { alpha, beta, radius, target };
         };
 
-        this.setCameraAngles = (angles: { alpha: number, beta: number, radius: number }) => {
-            desiredAlpha = angles.alpha;
-            desiredBeta = angles.beta;
-            desiredRadius = angles.radius;
+        this.setCameraParam = (param: { alpha: number, beta: number, radius: number, target: Vector3 }) => {
+            desiredAlpha = param.alpha;
+            desiredBeta = param.beta;
+            desiredRadius = param.radius;
+            desiredTarget = param.target;
         };
 
         const computeZoomNorm = () => {

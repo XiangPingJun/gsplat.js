@@ -11,10 +11,11 @@ declare class OrbitControls {
     dampening: number;
     setCameraTarget: (newTarget: Vector3) => void;
     getCameraAngles: () => {};
-    setCameraAngles: (angles: {
+    setCameraParam: (angles: {
         alpha: number;
         beta: number;
         radius: number;
+        target: Vector3;
     }) => void;
     update: () => void;
     dispose: () => void;
