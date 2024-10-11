@@ -11,6 +11,11 @@ declare class OrbitControls {
     dampening: number;
     setCameraTarget: (newTarget: Vector3) => void;
     getCameraAngles: () => {};
+    setCameraAngles: (angles: {
+        alpha: number;
+        beta: number;
+        radius: number;
+    }) => void;
     update: () => void;
     dispose: () => void;
     constructor(camera: Camera, canvas: HTMLElement, alpha?: number, beta?: number, radius?: number, enableKeyboardControls?: boolean, inputTarget?: Vector3);
