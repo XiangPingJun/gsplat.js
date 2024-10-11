@@ -12,7 +12,8 @@ class OrbitControls {
     panSpeed: number = 1;
     zoomSpeed: number = 1;
     dampening: number = 0.12;
-    setCameraTarget: (newTarget: Vector3) => void = () => {};
+    setCameraTarget: (newTarget: Vector3) => void = () => { };
+    getCameraAngles: () => {};
     update: () => void;
     dispose: () => void;
 
@@ -66,6 +67,10 @@ class OrbitControls {
             desiredBeta = Math.atan2(dy, Math.sqrt(dx * dx + dz * dz));
             desiredAlpha = -Math.atan2(dx, dz);
             desiredTarget = new Vector3(newTarget.x, newTarget.y, newTarget.z);
+        };
+
+        this.getCameraAngles = () => {
+            return { alpha, beta, radius };
         };
 
         const computeZoomNorm = () => {
