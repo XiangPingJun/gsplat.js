@@ -13,8 +13,9 @@ class OrbitControls {
     zoomSpeed: number = 1;
     dampening: number = 0.12;
     setCameraTarget: (newTarget: Vector3) => void = () => { };
-    getCameraAngles: () => {};
+    getCameraParam: () => {};
     setCameraParam: (angles: { alpha: number, beta: number, radius: number, target: Vector3 }) => void;
+    autoRotate: boolean = true;
     update: () => void;
     dispose: () => void;
 
@@ -70,7 +71,7 @@ class OrbitControls {
             desiredTarget = new Vector3(newTarget.x, newTarget.y, newTarget.z);
         };
 
-        this.getCameraAngles = () => {
+        this.getCameraParam = () => {
             return { alpha, beta, radius, target };
         };
 
@@ -265,6 +266,10 @@ class OrbitControls {
             // Add rotation with 'e' and 'q' for horizontal rotation
             if (keys["KeyE"]) desiredAlpha += rotateSpeed;
             if (keys["KeyQ"]) desiredAlpha -= rotateSpeed;
+
+            if (this.autoRotate) {
+                desiredAlpha += rotateSpeed / 2;
+            }
 
             // Add rotation with 'r' and 'f' for vertical rotation
             if (keys["KeyR"]) desiredBeta += rotateSpeed;
