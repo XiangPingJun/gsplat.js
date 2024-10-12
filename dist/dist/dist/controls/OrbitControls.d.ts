@@ -17,7 +17,7 @@ declare class OrbitControls {
         radius: number;
         target: Vector3;
     }) => void;
-    autoRotate: number;
+    autoRotate: boolean;
     update: () => void;
     dispose: () => void;
     constructor(camera: Camera, canvas: HTMLElement, alpha?: number, beta?: number, radius?: number, enableKeyboardControls?: boolean, inputTarget?: Vector3);

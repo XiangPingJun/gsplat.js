@@ -15,7 +15,7 @@ class OrbitControls {
     setCameraTarget: (newTarget: Vector3) => void = () => { };
     getCameraParam: () => {};
     setCameraParam: (angles: { alpha: number, beta: number, radius: number, target: Vector3 }) => void;
-    autoRotate: boolean = true;
+    autoRotate: number = 0;
     update: () => void;
     dispose: () => void;
 
@@ -268,7 +268,7 @@ class OrbitControls {
             if (keys["KeyQ"]) desiredAlpha -= rotateSpeed;
 
             if (this.autoRotate) {
-                desiredAlpha += rotateSpeed / 2;
+                desiredAlpha += this.autoRotate;
             }
 
             // Add rotation with 'r' and 'f' for vertical rotation
