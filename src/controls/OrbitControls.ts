@@ -79,7 +79,7 @@ class OrbitControls {
             desiredAlpha = param.alpha;
             desiredBeta = param.beta;
             desiredRadius = param.radius;
-            desiredTarget = param.target;
+            desiredTarget = new Vector3(param.target.x, param.target.y, param.target.z);
         };
 
         const computeZoomNorm = () => {
