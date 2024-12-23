@@ -160,7 +160,7 @@ class OrbitControls {
             preventDefault(e);
 
             const zoomNorm = computeZoomNorm();
-            desiredRadius += e.deltaY * this.zoomSpeed * 0.025 * zoomNorm;
+            desiredRadius += e.deltaY * this.zoomSpeed * 0.012 * zoomNorm;
             desiredRadius = Math.min(Math.max(desiredRadius, this.minZoom), this.maxZoom);
         };
 
